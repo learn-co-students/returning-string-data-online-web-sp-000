@@ -1,5 +1,10 @@
-class AddAuthorIdToPosts < ActiveRecord::Migration
+class CreatePosts < ActiveRecord::Migration
   def change
-    add_column :posts, :author_id, :integer
+    create_table :posts do |t|
+      t.integer :author_id 
+      t.string :title 
+      t.text :description 
+      t.timestamps null: false 
+    end
   end
 end
