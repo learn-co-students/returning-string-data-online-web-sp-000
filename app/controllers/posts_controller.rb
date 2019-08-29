@@ -6,7 +6,14 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    # binding.pry
   end
+
+  def body 
+    post = Post.find(params[:id])
+    render plain: post.description 
+  end 
 
   def new
     @post = Post.new
@@ -19,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
